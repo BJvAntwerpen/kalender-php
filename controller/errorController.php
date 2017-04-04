@@ -1,5 +1,5 @@
 <?php
 
 function index() {
-	echo "ERROR";
+	echo "<p>ERROR :P</p>";
 }

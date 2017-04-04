@@ -4,7 +4,7 @@ function route() {
 	$url = splitUrl();
 
 	if (!$url['controller']) {
-		require(ROOT . 'controller/homeController.php');
+		require(ROOT . 'controller/birthdayController.php');
 		call_user_func('index');
 	} elseif (file_exists(ROOT . 'controller/' . $url['controller'] . '.php')) {
 		require(ROOT . 'controller/' . $url['controller'] . '.php');
