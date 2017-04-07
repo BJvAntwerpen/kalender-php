@@ -1,154 +1,26 @@
+<?php 
+    $month = array("", "januari", "februari", "maart", "april", "mei", "juni", "juli", "augustus", "september", "oktober", "november", "december");
+?>
 
-<h1>januari</h1>
+<?php
+    $currentMonth = null;
+    $currentDay = null;
 
-<h1>februari</h1>
-    <h2>22</h2>
-        <p>
-            <a href="edit.php?id=4">
-                Anoushka (1981)</a>
-            <a href="delete.php?id=4">x</a>
-        </p>
-        <p>
-            <a href="edit.php?id=10">
-                Mila (1993)</a>
-            <a href="delete.php?id=10">x</a>
-        </p>
+    foreach($birthdays as $birthday) { ?>
+    <?php if ($currentMonth != $birthday['month']) {
+        echo "<h1>" . $month[$birthday['month']] . "</h1>";
+        $currentMonth = $birthday['month'];
+    }
+     if ($currentDay != $birthday['day']) {
+        echo "<h2>" . $birthday['day'] . "</h2>";
+        $currentDay = $birthday['day'];
+     } ?>
 
-<h1>maart</h1>
-    <h2>7</h2>
         <p>
-            <a href="edit.php?id=12">
-                Brana (1967)</a>
-            <a href="delete.php?id=12">x</a>
-        </p>
-    <h2>18</h2>
-        <p>
-            <a href="edit.php?id=9">
-                Vlad (1975)</a>
-            <a href="delete.php?id=9">x</a>
-        </p>
+            <a href="<?php echo URL . 'birthday/edit/' . $birthday['id']; ?>">
+                <?php echo $birthday['person'] . " (" . $birthday['year'] . ")";  ?></a>
 
-<h1>april</h1>
-    <h2>19</h2>
-        <p>
-            <a href="edit.php?id=16">
-                Boris (2001)</a>
-            <a href="delete.php?id=16">x</a>
+            <a href="<?php echo URL . 'birthday/delete/' . $birthday['id']; ?>">x</a>
         </p>
-    <h2>28</h2>
-        <p>
-            <a href="edit.php?id=6">
-                Anna (1989)</a>
-            <a href="delete.php?id=6">x</a>
-        </p>
-
-<h1>mei</h1>
-    <h2>5</h2>
-        <p>
-            <a href="edit.php?id=17">
-                Ludmila (1969)</a>
-            <a href="delete.php?id=17">x</a>
-        </p>
-    <h2>14</h2>
-        <p>
-            <a href="edit.php?id=8">
-                Vesela (1992)</a>
-            <a href="delete.php?id=8">x</a>
-        </p>
-        <p>
-            <a href="edit.php?id=2">
-                Nadia (1996)</a>
-            <a href="delete.php?id=2">x</a>
-        </p>
-        <p>
-            <a href="edit.php?id=18">
-                Stanibor (1999)</a>
-            <a href="delete.php?id=18">x</a>
-        </p>
-    <h2>21</h2>
-        <p>
-            <a href="edit.php?id=5">
-                Dimitri (2001)</a>
-            <a href="delete.php?id=5">x</a>
-        </p>
-
-<h1>juni</h1>
-    <h2>4</h2>
-        <p>
-            <a href="edit.php?id=13">
-                Darko (1973)</a>
-            <a href="delete.php?id=13">x</a>
-        </p>
-    <h2>13</h2>
-        <p>
-            <a href="edit.php?id=14">
-                Dragoslav (1982)</a>
-            <a href="delete.php?id=14">x</a>
-        </p>
-
-<h1>juli</h1>
-    <h2>17</h2>
-        <p>
-            <a href="edit.php?id=7">
-                Miroslav (2010)</a>
-            <a href="delete.php?id=7">x</a>
-        </p>
-
-<h1>augustus</h1>
-    <h2>5</h2>
-        <p>
-            <a href="edit.php?id=1">
-                Vera (1963)</a>
-            <a href="delete.php?id=1">x</a>
-        </p>
-
-<h1>september</h1>
-    <h2>9</h2>
-        <p>
-            <a href="edit.php?id=15">
-                Godemir (1984)</a>
-            <a href="delete.php?id=15">x</a>
-        </p>
-
-<h1>oktober</h1>
-
-<h1>november</h1>
-
-<h1>december</h1>
-    <h2>7</h2>
-        <p>
-            <a href="edit.php?id=3">
-                Petrov (1985)</a>
-            <a href="delete.php?id=3">x</a>
-        </p>
-    <h2>19</h2>
-        <p>
-            <a href="edit.php?id=11">
-                Goran (2006)</a>
-            <a href="delete.php?id=11">x</a>
-        </p>
-
-        <p><a href="create.php">+ Toevoegen</a></p>
-
-        <div class="container">
-    <table border="1">
-        <tr>
-            <th>#</th>
-            <th>Voornaam</th>
-            <th>Dag</th>
-            <th>Maand</th>
-            <th>Yaar</th>
-        </tr>
-        
-        <?php foreach ($birthdays as $birthday) { ?>
-        <tr>
-            <td><?= $birthday['id']; ?></td>
-            <td><?= $birthday['person']; ?></td>
-            <td><?= $birthday['day']; ?></td>
-            <td><?= $birthday['month']; ?></td>
-            <td><?= $birthday['year']; ?></td>
-        </tr>
-        <?php } ?>
-
-    </table>
-</div>
+    <?php } ?>
+<p><a href="<?= URL ?>birthday/create">+ Toevoegen</a></p>
