@@ -50,6 +50,7 @@
 			<option value="month11">november</option>
 			<option value="month12">december</option>
 		</select>
+		<input type="text" name="year" placeholder="<?= date(m)?>">
 
 		<input type="submit" value="Verzenden">
 	
