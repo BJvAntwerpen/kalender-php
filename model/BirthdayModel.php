@@ -72,7 +72,7 @@ function createBirthday() {
 	}
 	
 	$db = openDatabaseConnection();
-	$sql = "INSERT INTO students(person, day, month, year) VALUES (:person, :day, :month, :year)";
+	$sql = "INSERT INTO birthdays(person, day, month, year) VALUES (:person, :day, :month, :year)";
 	$query = $db->prepare($sql);
 	$query->execute(array(
 		':person' => $person,
