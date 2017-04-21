@@ -6,6 +6,7 @@
     <?php if ($currentMonth != $birthday['month']) {
         echo "<h1>" . $months[$birthday['month']] . "</h1>";
         $currentMonth = $birthday['month'];
+        $currentDay = null;
     }
      if ($currentDay != $birthday['day']) {
         echo "<h2>" . $birthday['day'] . "</h2>";
