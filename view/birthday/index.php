@@ -1,14 +1,10 @@
-<?php 
-    $month = array("", "januari", "februari", "maart", "april", "mei", "juni", "juli", "augustus", "september", "oktober", "november", "december");
-?>
-
 <?php
     $currentMonth = null;
     $currentDay = null;
 
     foreach($birthdays as $birthday) { ?>
     <?php if ($currentMonth != $birthday['month']) {
-        echo "<h1>" . $month[$birthday['month']] . "</h1>";
+        echo "<h1>" . $months[$birthday['month']] . "</h1>";
         $currentMonth = $birthday['month'];
     }
      if ($currentDay != $birthday['day']) {
